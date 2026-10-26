@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREATE ELEMENTS</title>
+</head>
+<body>
+    <!-- 
+    CRUD
+
+    c = Create / Criar
+    R = Read / Ler
+    U = Update / Atualizar
+    D = Delete  / Deletar
+    
+    -->
+
+
+    <h2>Coloque um valor</h2>
+
+    <input id="entrada" type="text">
+    <button onclick="salvarDados()">Adicionar</button>
+    
+    <br>
+    
+    <p>lista de itens:</p>
+    
+    <div id="editar"></div>
+    
+    <div>
+        <ul id="resultado">
+            <!-- <li></li> -->
+        </ul>
+    </div>
+    
+
+    <script>
+
+        let listaElementos = [];
+        let index = 0;
+
+        function salvarDados() {
+            // CREATE - C
+            
+            let entrada = document.getElementById("entrada").value
+
+            let entradaObjeto = {
+                id:index,
+                texto:entrada
+            };
+
+            index++;
+
+            listaElementos.push(entradaObjeto)        
+            mostrar()
+        };
+
+
+        function mostrar () {
+            // READ - R
+            
+            let li = document.getElementById("resultado")
+            let html = ""
+            
+
+            listaElementos.forEach(elemento => {
+                html += `<li>
+                         ${elemento.texto}
+                        <button onclick="editar(${elemento.id})">
+                            editar
+                        </button>
+
+                        <button onclick="deletar(${elemento.id})">
+                            deletar
+                        </button>                        
+                        </li>`
+            })
+            
+            li.innerHTML = html
+        };
+        
+
+        function editar(id) {
+            let resultado = listaElementos.find( obj => obj.id === id)
+            let html = `<input id="textoParaEditar" type="text">
+            
+                        <button onclick="editarDados(${id})">
+                            Editar
+                        </button>`
+                            
+            let divEditar = document.getElementById("editar");
+            
+            divEditar.innerHTML = html
+            
+        };
+        
+        function editarDados(id) {
+            //  UPDATE - U
+
+            let textoParaEditar = document.getElementById("textoParaEditar").value
+            let resultado = listaElementos.find( obj => obj.id === id)
+            
+            resultado.texto = textoParaEditar;
+            
+            mostrar()
+            
+            let divEditar = document.getElementById("editar");
+            divEditar.innerHTML = ""
+        }
+
+        function deletar(id) {
+            // DELETE - D
+
+            let listaAtualizada = listaElementos.filter(obj => obj.id !== id)
+
+            listaElementos = listaAtualizada           
+           
+            mostrar()
+            
+        }
+
+    </script>
+</body>
+</html>
