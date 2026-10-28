@@ -1,0 +1,112 @@
+:root {
+    /* Paleta de cores */
+    
+    --cor-primaria: ;
+    --cor-secundaria: ;
+
+    --cor-butao: ;
+    --imagem-fundo: ;
+
+    /* Formatações do site */
+
+    --texto-titulo: ;
+    --cor-texto: ;
+    --tamanho-texto: 17px;
+    --arrendodamento: 8px;
+    
+    
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("assets/wallpaper3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover ;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+.div-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    border: 2px solid rgb(110, 30, 104);
+    padding: 100px;
+}
+
+.titulo-container {
+    color: blue;
+    font-size: 40px;
+}
+
+.sessao-entrada {
+    display: flex;
+    gap: 10px;
+    height: 30px;
+}
+
+.sessao-entrada-input {
+    background-color:rgb(232, 226, 226);
+    outline: none;
+    font-size: var(--tamanho-texto);
+}
+
+.botao-container {
+    background-color: rgb(89, 158, 205);
+    font-size: var(--tamanho-texto); 
+    border: 2px solid rgb(101, 101, 196);
+    text-align: center;
+    padding: 2px 16px;
+    border-radius: var(--arrendodamento);
+}
+
+.botao-container:hover {
+    background-color: aliceblue;
+}
+
+.sessao-resultados {
+    background-color: blueviolet; 
+    
+}
+
+.sub-titulo {
+    font-size: 20px;
+}
+
+.sessao-elementos {
+    display: flex;
+    gap: 20px;
+    background-color: aquamarine;
+}
+
+/* Estas outras então sendo atribuidas ao elementos do javaScript */
+
+.justificar-itens {
+    display: flex;
+    gap: 10px;
+    font-size: var(--tamanho-texto);
+    padding: 10px;
+}
+
+
+
+
+
+.roda-pe {
+    display: none;    
+}
+
+
